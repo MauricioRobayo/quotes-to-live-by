@@ -26,7 +26,7 @@
   </style>
 </head>
 <body>
-  <blockquote cite="https://www.huxley.net/bnw/four.html">
+  <blockquote>
     <blockquote></blockquote>
     <footer></footer>
   </blockquote>
@@ -46,6 +46,7 @@
     function renderQuote(quote) {
       const $blockquote = document.querySelector('blockquote')
       const $author = document.querySelector('footer')
+      console.log(quote)
       $blockquote.textContent = quote.quote
       $author.textContent = quote.author
     }
