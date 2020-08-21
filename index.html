@@ -153,8 +153,7 @@
       }
 
       getQuotes().then((quotes) => {
-        const [quote] = shuffle(quotes);
-        renderQuote(quote);
+        renderQuote(shuffle(quotes)[0]);
       });
     </script>
   </body>
