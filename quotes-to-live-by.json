@@ -25,5 +25,10 @@
     "quote": "The ones who put themselves in the line as a way of life learn much faster than the ones that are protecting their egos.",
     "author": "Josh Waitzkin",
     "cite": ""
+  },
+  {
+    "quote": "When in doubt, iterate faster.",
+    "author": "Jeff Atwood",
+    "cite": "https://blog.codinghorror.com/boyds-law-of-iteration/"
   }
 ]
