@@ -160,9 +160,9 @@
 
         function renderQuote(container, { quote, author = "", cite = "" }) {
           const blockquote = createElement("blockquote", quote);
-          
+
           if (cite.trim()) {
-            blockquote.setAttribute('cite', cite)
+            blockquote.setAttribute("cite", cite);
           }
 
           if (author.trim()) {
