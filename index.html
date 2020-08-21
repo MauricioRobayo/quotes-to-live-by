@@ -36,9 +36,13 @@
   </style>
 </head>
 <body>
-  <blockquote></blockquote>
-  <footer></footer>
   <script>    
+    function createElement(type, textContent) {
+      const el = document.createElement(type)
+      el.textContent = textContent
+      return el
+    }
+
     async function getQuotes() {
       const response = await fetch('https://raw.githubusercontent.com/MauricioRobayo/quotes-to-live-by/master/quotes-to-live-by.json')
       if (!response.ok) {
@@ -51,11 +55,17 @@
       return quotes.sort(() => Math.random() - 0.5)
     }
 
-    function renderQuote(quote) {
-      const $blockquote = document.querySelector('blockquote')
-      const $footer = document.querySelector('footer')
-      $blockquote.textContent = quote.quote
-      $footer.textContent = quote.author
+    function renderQuote({ quote, author }) {
+      const $body = document.querySelector('body')
+      $body.innerHTML = ''
+
+      const $blockquote = createElement('blockquote', quote)
+      $body.append($blockquote)
+      
+      if (author.trim()) {
+        const $footer = createElement('footer', author)
+        $body.append($footer)
+      }
     }
       
     getQuotes()
