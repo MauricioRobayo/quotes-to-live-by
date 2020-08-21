@@ -9,57 +9,59 @@
       rel="stylesheet"
     />
     <style>
-          body {
-            margin: 0;
-            background-color: hsl(24, 100%, 50%);
-            font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-          }
-          #content {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            flex: 1;
-          }
-          #content blockquote {
-            font-weight: 900;
-            padding: 0.25rem;
-            font-size: calc(1.5rem + 4vmin);
-            color: white;
-            max-width: 1400px;
-          }
-          #content footer {
-            font-weight: 700;
-            color: hsl(0, 0%, 20%);
-            font-size: calc(.5rem + 2vmin);
-          }
-          #content footer::before, #content footer::after {
-            content: '〰';
-            padding: 1rem;
-          }
-          .header {
-            cursor: pointer;
-          }
-          .footer, .header {
-            padding: 1rem;
-            color: hsl(0, 0%, 20%);
-            text-transform: uppercase;
-          }
-          .footer a {
-            color: inherit;
-            text-decoration: none;
-            padding: 0.5rem;
-          }
-          .footer a:hover {
-            text-decoration: underline wavy currentColor;
-          }
-          /* loader https://loading.io/css/ */
-          .lds-ripple {
+      body {
+        margin: 0;
+        background-color: hsl(24, 100%, 50%);
+        font-family: "Montserrat", sans-serif;
+        min-height: 100vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex: 1;
+      }
+      #content blockquote {
+        font-weight: 900;
+        padding: 0.25rem;
+        font-size: calc(1.5rem + 4vmin);
+        color: white;
+        max-width: 1400px;
+      }
+      #content footer {
+        font-weight: 700;
+        color: hsl(0, 0%, 20%);
+        font-size: calc(0.5rem + 2vmin);
+      }
+      #content footer::before,
+      #content footer::after {
+        content: "〰";
+        padding: 1rem;
+      }
+      .header {
+        cursor: pointer;
+      }
+      .footer,
+      .header {
+        padding: 1rem;
+        color: hsl(0, 0%, 20%);
+        text-transform: uppercase;
+      }
+      .footer a {
+        color: inherit;
+        text-decoration: none;
+        padding: 0.5rem;
+      }
+      .footer a:hover {
+        text-decoration: underline wavy currentColor;
+      }
+      /* loader https://loading.io/css/ */
+      .lds-ripple {
         display: inline-block;
         position: relative;
         width: 80px;
@@ -105,9 +107,14 @@
       </div>
     </div>
     <footer class="footer">
-      <a href="https://raw.githubusercontent.com/MauricioRobayo/quotes-to-live-by/master/quotes-to-live-by.json">JSON File</a>
+      <a
+        href="https://raw.githubusercontent.com/MauricioRobayo/quotes-to-live-by/master/quotes-to-live-by.json"
+        >JSON File</a
+      >
       —
-      <a href="https://github.com/MauricioRobayo/quotes-to-live-by">Source code</a>
+      <a href="https://github.com/MauricioRobayo/quotes-to-live-by"
+        >Source code</a
+      >
     </footer>
     <script>
       function createElement(type, textContent) {
@@ -147,41 +154,41 @@
 
       function render(container, ...children) {
         container.innerHTML = "";
-        container.append(...children)
+        container.append(...children);
       }
 
-      function renderQuote(container, { quote, author = '' }) {
+      function renderQuote(container, { quote, author = "" }) {
         const blockquote = createElement("blockquote", quote);
         if (author.trim()) {
           const footer = createElement("footer", author);
-          render(container, blockquote, footer)
+          render(container, blockquote, footer);
         } else {
-          render(container, blockquote)
+          render(container, blockquote);
         }
       }
 
       function renderError(container, error) {
-        render(container, createElement('div', error))
+        render(container, createElement("div", error));
       }
-        
+
       function loadQuotes() {
         const container = document.querySelector("#content");
         getQuotes()
-        .then((quotes) => {
+          .then((quotes) => {
             renderQuote(container, shuffle(quotes)[0]);
           })
           .catch((error) => {
-            renderError(container, error)
+            renderError(container, error);
           });
       }
 
       function init() {
         const newQuote = document.querySelector("#new-quote");
-        newQuote.addEventListener('click', loadQuotes)
-        loadQuotes()
+        newQuote.addEventListener("click", loadQuotes);
+        loadQuotes();
       }
 
-      init()
+      init();
     </script>
   </body>
 </html>
