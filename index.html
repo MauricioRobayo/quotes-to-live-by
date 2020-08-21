@@ -139,19 +139,25 @@
         return quotes.sort(() => Math.random() - 0.5);
       }
 
-      function renderQuote(container, { quote, author }) {
+      function render(container, ...children) {
         container.innerHTML = "";
-        container.append(createElement("blockquote", quote));
+        container.append(...children)
+      }
+
+      function renderQuote(container, { quote, author = '' }) {
+        const blockquote = createElement("blockquote", quote);
         if (author.trim()) {
-          container.append(createElement("footer", author));
+          const footer = createElement("footer", author);
+          render(container, blockquote, footer)
+        } else {
+          render(container, blockquote)
         }
       }
 
       function renderError(container, error) {
-        container.innerHTML = "";
-        container.append(createElement('div', error))
+        render(container, createElement('div', error))
       }
-      
+            
       function init() {
         const container = document.querySelector("#content");
         getQuotes()
