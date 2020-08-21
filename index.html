@@ -15,13 +15,23 @@
       display: flex;
       min-height: 100vh;
       justify-content: center;
-      align-items: center;
+      flex-direction: column;
     }
     blockquote {
       padding: 0.25rem;
       font-family: 'Roboto', sans-serif;
       font-size: calc(1.5rem + 4vmin);
       color: tomato;
+    }
+    footer {
+      color: tomato;
+      align-self: center;
+      font-size: calc(.075rem + 4vmin);
+      font-weight: bold;
+    }
+    footer::before, footer::after {
+      content: '~';
+      padding: 1rem;
     }
   </style>
 </head>
