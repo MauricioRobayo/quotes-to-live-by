@@ -139,22 +139,37 @@
         return quotes.sort(() => Math.random() - 0.5);
       }
 
-      function renderQuote({ quote, author }) {
-        const $body = document.querySelector("#content");
-        $body.innerHTML = "";
+      function render(container, ...children) {
+        container.innerHTML = "";
+        container.append(...children)
+      }
 
-        const $blockquote = createElement("blockquote", quote);
-        $body.append($blockquote);
-
+      function renderQuote(container, { quote, author = '' }) {
+        const blockquote = createElement("blockquote", quote);
         if (author.trim()) {
-          const $footer = createElement("footer", author);
-          $body.append($footer);
+          const footer = createElement("footer", author);
+          render(container, blockquote, footer)
+        } else {
+          render(container, blockquote)
         }
       }
 
-      getQuotes().then((quotes) => {
-        renderQuote(shuffle(quotes)[0]);
-      });
+      function renderError(container, error) {
+        render(container, createElement('div', error))
+      }
+            
+      function init() {
+        const container = document.querySelector("#content");
+        getQuotes()
+        .then((quotes) => {
+            renderQuote(container, shuffle(quotes)[0]);
+          })
+          .catch((error) => {
+            renderError(container, error)
+          });
+      }
+
+      init()
     </script>
   </body>
 </html>
