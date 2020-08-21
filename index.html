@@ -11,7 +11,7 @@
     <style>
           body {
             margin: 0;
-            background-color: #ff6600;
+            background-color: hsl(24, 100%, 50%);
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             text-align: center;
@@ -42,13 +42,16 @@
             content: '〰';
             padding: 1rem;
           }
-          .footer {
+          .header {
+            cursor: pointer;
+          }
+          .footer, .header {
             padding: 1rem;
             color: hsl(0, 0%, 20%);
+            text-transform: uppercase;
           }
           .footer a {
             color: inherit;
-            text-transform: uppercase;
             text-decoration: none;
             padding: 0.5rem;
           }
@@ -92,6 +95,9 @@
     </style>
   </head>
   <body>
+    <div id="new-quote" class="header">
+      New quote
+    </div>
     <div id="content">
       <div id="loader" class="lds-ripple">
         <div></div>
@@ -157,8 +163,8 @@
       function renderError(container, error) {
         render(container, createElement('div', error))
       }
-            
-      function init() {
+        
+      function loadQuotes() {
         const container = document.querySelector("#content");
         getQuotes()
         .then((quotes) => {
@@ -167,6 +173,12 @@
           .catch((error) => {
             renderError(container, error)
           });
+      }
+
+      function init() {
+        const newQuote = document.querySelector("#new-quote");
+        newQuote.addEventListener('click', loadQuotes)
+        loadQuotes()
       }
 
       init()
