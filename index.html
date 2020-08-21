@@ -92,10 +92,11 @@
     </style>
   </head>
   <body>
-    <div id="content"></div>
-    <div id="loader" class="lds-ripple">
-      <div></div>
-      <div></div>
+    <div id="content">
+      <div id="loader" class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <footer class="footer">
       <a href="https://raw.githubusercontent.com/MauricioRobayo/quotes-to-live-by/master/quotes-to-live-by.json">JSON File</a>
@@ -153,8 +154,6 @@
 
       getQuotes().then((quotes) => {
         const [quote] = shuffle(quotes);
-        const $loader = document.querySelector('#loader')
-        $loader.style.display = "none";
         renderQuote(quote);
       });
     </script>
