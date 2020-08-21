@@ -13,28 +13,40 @@
             margin: 0;
             background-color: #ff6600;
             font-family: 'Montserrat', sans-serif;
-            display: flex;
             min-height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+          #content {
+            display: flex;
             justify-content: center;
             flex-direction: column;
-            text-align: center;
-            align-items: center;
+            flex: 1;
           }
-          blockquote {
+          #content blockquote {
             font-weight: 900;
             padding: 0.25rem;
             font-size: calc(1.5rem + 4vmin);
             color: white;
             max-width: 1400px;
           }
-          footer {
+          #content footer {
             font-weight: 700;
             color: hsl(0, 0%, 20%);
             font-size: calc(.5rem + 2vmin);
           }
-          footer::before, footer::after {
+          #content footer::before, #content footer::after {
             content: '〰';
             padding: 1rem;
+          }
+          .footer {
+            padding: 1rem;
+          }
+          .footer a {
+            color: hsl(0, 0%, 20%);
           }
           /* loader https://loading.io/css/ */
           .lds-ripple {
@@ -78,6 +90,10 @@
       <div></div>
       <div></div>
     </div>
+    <footer class="footer">
+      <a href="https://raw.githubusercontent.com/MauricioRobayo/quotes-to-live-by/master/quotes-to-live-by.json">JSON File</a>
+      <a href="https://github.com/MauricioRobayo/quotes-to-live-by">Source code</a>
+    </footer>
     <script>
       function createElement(type, textContent) {
         const el = document.createElement(type);
