@@ -158,8 +158,13 @@
           container.append(...children);
         }
 
-        function renderQuote(container, { quote, author = "" }) {
+        function renderQuote(container, { quote, author = "", cite = "" }) {
           const blockquote = createElement("blockquote", quote);
+          
+          if (cite.trim()) {
+            blockquote.setAttribute('cite', cite)
+          }
+
           if (author.trim()) {
             const footer = createElement("footer", author);
             render(container, blockquote, footer);
