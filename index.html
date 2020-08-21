@@ -44,9 +44,16 @@
           }
           .footer {
             padding: 1rem;
+            color: hsl(0, 0%, 20%);
           }
           .footer a {
-            color: hsl(0, 0%, 20%);
+            color: inherit;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem;
+          }
+          .footer a:hover {
+            text-decoration: underline wavy currentColor;
           }
           /* loader https://loading.io/css/ */
           .lds-ripple {
@@ -92,6 +99,7 @@
     </div>
     <footer class="footer">
       <a href="https://raw.githubusercontent.com/MauricioRobayo/quotes-to-live-by/master/quotes-to-live-by.json">JSON File</a>
+      —
       <a href="https://github.com/MauricioRobayo/quotes-to-live-by">Source code</a>
     </footer>
     <script>
