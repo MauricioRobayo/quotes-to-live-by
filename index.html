@@ -139,32 +139,27 @@
         return quotes.sort(() => Math.random() - 0.5);
       }
 
-      function renderQuote($container, { quote, author }) {
-        $container.innerHTML = "";
-
-        const $blockquote = createElement("blockquote", quote);
-        $container.append($blockquote);
-
+      function renderQuote(container, { quote, author }) {
+        container.innerHTML = "";
+        container.append(createElement("blockquote", quote));
         if (author.trim()) {
-          const $footer = createElement("footer", author);
-          $container.append($footer);
+          container.append(createElement("footer", author));
         }
       }
 
-      function renderError($container, error) {
-        const $error = createElement('div', error)
-        $container.innerHTML = "";
-        $container.append($error)
+      function renderError(container, error) {
+        container.innerHTML = "";
+        container.append(createElement('div', error))
       }
       
       function init() {
-        const $container = document.querySelector("#content");
+        const container = document.querySelector("#content");
         getQuotes()
         .then((quotes) => {
-            renderQuote($container, shuffle(quotes)[0]);
+            renderQuote(container, shuffle(quotes)[0]);
           })
           .catch((error) => {
-            renderError($container, error)
+            renderError(container, error)
           });
       }
 
