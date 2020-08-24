@@ -25,6 +25,7 @@
         justify-content: center;
         flex-direction: column;
         flex: 1;
+        cursor: pointer;
       }
       #content blockquote {
         font-weight: 900;
@@ -184,7 +185,9 @@
         }
 
         const newQuote = document.querySelector("#new-quote");
+        const container = document.querySelector("#content");
         newQuote.addEventListener("click", loadQuotes);
+        container.addEventListener("click", loadQuotes);
         loadQuotes();
       })();
     </script>
