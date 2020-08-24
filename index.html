@@ -184,10 +184,12 @@
             });
         }
 
-        const newQuote = document.querySelector("#new-quote");
-        const container = document.querySelector("#content");
-        newQuote.addEventListener("click", loadQuotes);
-        container.addEventListener("click", loadQuotes);
+        document.body.addEventListener("click", function (event) {
+          if (event.target.matches("blockquote") || event.target.matches('header')) {
+            loadQuotes();
+          }
+        });
+
         loadQuotes();
       })();
     </script>
