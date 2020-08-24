@@ -20,13 +20,13 @@
         align-items: center;
         justify-content: center;
       }
-      #content {
+      figure {
         display: flex;
         justify-content: center;
         flex-direction: column;
         flex: 1;
       }
-      #content blockquote {
+      blockquote {
         cursor: pointer;
         font-weight: 900;
         padding: 0.25rem;
@@ -34,7 +34,7 @@
         color: white;
         max-width: 1400px;
       }
-      #content footer {
+      figcaption {
         font-weight: 700;
         color: hsl(0, 0%, 20%);
         font-size: calc(0.5rem + 2vmin);
@@ -42,18 +42,18 @@
       header {
         cursor: pointer;
       }
-      .footer,
+      footer,
       header {
         padding: 1rem;
         color: hsl(0, 0%, 20%);
         text-transform: uppercase;
       }
-      .footer a {
+      footer a {
         color: inherit;
         text-decoration: none;
         padding: 0.5rem;
       }
-      .footer a:hover {
+      footer a:hover {
         text-decoration: underline wavy currentColor;
       }
       /* loader https://loading.io/css/ */
@@ -96,13 +96,13 @@
     <header id="new-quote">
       New quote
     </header>
-    <div id="content">
+    <figure id="content">
       <div id="loader" class="lds-ripple">
         <div></div>
         <div></div>
       </div>
-    </div>
-    <footer class="footer">
+    </figure>
+    <footer>
       <a href="https://github.com/MauricioRobayo/quotes-to-live-by"
         >Source code</a
       >
@@ -157,7 +157,7 @@
           }
 
           if (author.trim()) {
-            const footer = createElement("footer", author);
+            const footer = createElement("figcaption", author);
             render(container, blockquote, footer);
           } else {
             render(container, blockquote);
