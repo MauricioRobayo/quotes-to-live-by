@@ -121,6 +121,16 @@
           return el;
         }
 
+        function createQuoteElement({ quote, author = "", cite = "" }) {
+          const blockquote = createElement("blockquote", quote);
+
+          if (cite.trim()) {
+            blockquote.setAttribute("cite", cite);
+          }
+
+          return blockquote
+        }
+
         async function getQuotes() {
           const SESSION_STORAGE_KEY = "quotes";
 
@@ -155,15 +165,11 @@
           container.append(...children);
         }
 
-        function renderQuote(container, { quote, author = "", cite = "" }) {
-          const blockquote = createElement("blockquote", quote);
+        function renderQuote(container, quote) {
+          const blockquote = createQuoteElement(quote)
 
-          if (cite.trim()) {
-            blockquote.setAttribute("cite", cite);
-          }
-
-          if (author.trim()) {
-            const footer = createElement("figcaption", author);
+          if (quote.author.trim()) {
+            const footer = createElement("figcaption", quote.author);
             render(container, blockquote, footer);
           } else {
             render(container, blockquote);
