@@ -21,29 +21,31 @@
         justify-content: center;
       }
       figure {
+        margin: 2rem 0;
         display: flex;
         justify-content: center;
         flex-direction: column;
         flex: 1;
       }
       blockquote {
+        margin: 0 auto 2rem;
         cursor: pointer;
         font-weight: 900;
-        padding: 0.25rem;
-        font-size: calc(1.5rem + 4vmin);
+        font-size: clamp(2rem, 8vw, 4rem);
         color: white;
-        max-width: 1400px;
+        max-width: min(1400px, 90%);
       }
       figcaption {
         font-weight: 700;
         color: hsl(0, 0%, 20%);
-        font-size: calc(0.5rem + 2vmin);
+        font-size: clamp(1rem, 4vw, 2rem);
       }
       header {
         cursor: pointer;
       }
       footer,
       header {
+        font-size: 0.85rem;
         padding: 1rem;
         color: hsl(0, 0%, 20%);
         text-transform: uppercase;
