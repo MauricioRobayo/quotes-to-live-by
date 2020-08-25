@@ -99,10 +99,10 @@
     </style>
   </head>
   <body>
-    <header id="new-quote">
+    <header>
       New quote
     </header>
-    <figure id="content">
+    <figure>
       <div id="loader" class="lds-ripple">
         <div></div>
         <div></div>
@@ -175,7 +175,7 @@
         }
 
         function loadQuotes() {
-          const container = document.querySelector("#content");
+          const container = document.querySelector("figure");
           getQuotes()
             .then((quotes) => {
               renderQuote(container, shuffle(quotes)[0]);
