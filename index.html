@@ -179,7 +179,7 @@
           render(container, createElement("div", error));
         }
 
-        function loadQuotes() {
+        function loadQuote() {
           const container = document.querySelector("figure");
           getQuotes()
             .then((quotes) => {
@@ -192,11 +192,11 @@
 
         document.body.addEventListener("click", function (event) {
           if (event.target.matches("blockquote") || event.target.matches('header')) {
-            loadQuotes();
+            loadQuote();
           }
         });
 
-        loadQuotes();
+        loadQuote();
       })();
     </script>
   </body>
