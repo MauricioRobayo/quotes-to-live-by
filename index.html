@@ -169,8 +169,7 @@
           const blockquote = createQuoteElement(quote)
 
           if (quote.author.trim()) {
-            const footer = createElement("figcaption", quote.author);
-            render(container, blockquote, footer);
+            render(container, blockquote, createElement("figcaption", quote.author));
           } else {
             render(container, blockquote);
           }
