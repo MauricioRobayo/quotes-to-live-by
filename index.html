@@ -172,24 +172,19 @@
           render(container, createElement("div", error));
         }
 
-        function loadQuote() {
-          const container = document.querySelector("figure");
+        function loadQuote(container) {
           getQuotes()
-            .then((quotes) => {
-              renderQuote(container, shuffle(quotes)[0]);
-            })
-            .catch((error) => {
-              renderError(container, error);
-            });
+          .then((quotes) => {
+            renderQuote(container, shuffle(quotes)[0]);
+          })
+          .catch((error) => {
+            renderError(container, error);
+          });
         }
 
-        document.body.addEventListener("click", function (event) {
-          if (event.target.matches("figure")) {
-            loadQuote();
-          }
-        });
-
-        loadQuote();
+        const container = document.querySelector("figure");
+        loadQuote(container);
+        container.addEventListener("click", function() { loadQuote(container) });
       })();
     </script>
   </body>
