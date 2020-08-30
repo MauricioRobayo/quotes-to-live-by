@@ -1,0 +1,34 @@
+{
+  "name": "quotes-to-live-by",
+  "version": "0.0.0-semantic-release",
+  "description": "Quotes gathered from here and there to get inspiration when needed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauricioRobayo/quotes-to-live-by.git"
+  },
+  "keywords": [],
+  "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MauricioRobayo/quotes-to-live-by/issues"
+  },
+  "homepage": "https://github.com/MauricioRobayo/quotes-to-live-by#readme",
+  "files": [
+    "app"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@commitlint/travis-cli": "^9.1.2",
+    "husky": "^4.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
