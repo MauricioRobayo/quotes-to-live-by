@@ -26,10 +26,10 @@
         justify-content: center;
         flex-direction: column;
         flex: 1;
+        cursor: pointer;
       }
       blockquote {
         margin: 0 auto 2rem;
-        cursor: pointer;
         font-weight: 900;
         font-size: clamp(2rem, 8vw, 4rem);
         color: white;
@@ -191,7 +191,7 @@
         }
 
         document.body.addEventListener("click", function (event) {
-          if (event.target.matches("blockquote") || event.target.matches('header')) {
+          if (event.target.matches("figure") || event.target.matches('header')) {
             loadQuote();
           }
         });
