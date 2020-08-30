@@ -44,11 +44,7 @@
         content: "〰";
         margin: 0.5rem;
       }
-      header {
-        cursor: pointer;
-      }
-      footer,
-      header {
+      footer {
         font-size: 0.85rem;
         padding: 1rem;
         color: hsl(0, 0%, 20%);
@@ -99,9 +95,6 @@
     </style>
   </head>
   <body>
-    <header>
-      New quote
-    </header>
     <figure>
       <div id="loader" class="lds-ripple">
         <div></div>
@@ -191,7 +184,7 @@
         }
 
         document.body.addEventListener("click", function (event) {
-          if (event.target.matches("figure") || event.target.matches('header')) {
+          if (event.target.matches("figure")) {
             loadQuote();
           }
         });
