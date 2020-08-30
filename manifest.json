@@ -1,0 +1,13 @@
+{
+  "name": "Quotes to Live By",
+	"description": "A random quote to get inspiration.",
+	"version": "1.0.0",
+	"incognito": "spanning",
+	"author": "Mauricio Robayo",
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"permissions": [],
+  "manifest_version": 2,
+  "homepage_url": "https://github.com/mauriciorobayo/quotes-to-live-by"
+}
