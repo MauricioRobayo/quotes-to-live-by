@@ -40,10 +40,6 @@
     return quotes;
   }
 
-  function shuffle(quotes) {
-    return quotes.sort(() => Math.random() - 0.5);
-  }
-
   function render(container, ...children) {
     container.innerHTML = "";
     container.append(...children);
@@ -70,7 +66,7 @@
   function loadQuote(container) {
     getQuotes()
       .then((quotes) => {
-        renderQuote(container, shuffle(quotes)[0]);
+        renderQuote(container, quotes[Math.floor(Math.random() * quotes.length)]);
       })
       .catch((error) => {
         renderError(container, error);
