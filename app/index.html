@@ -10,9 +10,14 @@
     />
     <link rel="shortcut icon" href="icon128.png" type="image/png">
     <style>
+      :root {
+        --primary-color:  hsl(0, 0%, 20%);
+        --secondary-color: white;
+        --bg-color: hsl(24, 100%, 50%);
+      }
       body {
         margin: 0;
-        background-color: hsl(24, 100%, 50%);
+        background-color: var(--bg-color);
         font-family: "Montserrat", sans-serif;
         min-height: 100vh;
         text-align: center;
@@ -20,6 +25,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        color: var(--primary-color);
       }
       figure {
         margin: 2rem 0;
@@ -33,12 +39,11 @@
         margin: 0 auto 2rem;
         font-weight: 900;
         font-size: clamp(2rem, 8vw, 4rem);
-        color: white;
         max-width: min(1400px, 90%);
+        color: var(--secondary-color);
       }
       figcaption {
         font-weight: 700;
-        color: hsl(0, 0%, 20%);
         font-size: clamp(1rem, 4vw, 2rem);
       }
       figcaption::after,
@@ -49,7 +54,6 @@
       footer {
         font-size: 0.85rem;
         padding: 1rem;
-        color: hsl(0, 0%, 20%);
         text-transform: uppercase;
       }
       footer a {
@@ -69,7 +73,7 @@
       }
       .lds-ripple div {
         position: absolute;
-        border: 4px solid #fff;
+        border: 4px solid var(--secondary-color);
         opacity: 1;
         border-radius: 50%;
         animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
