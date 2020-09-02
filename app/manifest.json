@@ -1,7 +1,7 @@
 {
   "name": "Quotes to Live By",
   "description": "A random quote to get inspiration.",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "incognito": "spanning",
   "author": "Mauricio Robayo",
   "chrome_url_overrides": {
