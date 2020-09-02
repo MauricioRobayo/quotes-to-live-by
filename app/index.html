@@ -56,12 +56,11 @@
         content: "〰";
         margin: 0.5rem;
       }
-      footer {
-        font-size: 0.85rem;
+      footer, header {
         padding: 1rem;
-        text-transform: uppercase;
       }
       button, a {
+        font-size: 0.85rem;
         text-decoration: none;
         font-family: inherit;
         background-color: inherit;
@@ -70,6 +69,7 @@
         cursor: pointer;
         color: inherit;
         text-transform: uppercase;
+        margin: 0;
       }
       button:hover, a:hover {
         text-decoration: underline dashed currentColor;
@@ -80,9 +80,6 @@
       button.active:hover {
         text-decoration: none;
         cursor: auto;
-      }
-      .themes {
-        margin: 1rem 0;
       }
       /* loader https://loading.io/css/ */
       .lds-ripple {
@@ -121,6 +118,11 @@
     </style>
   </head>
   <body>
+    <header class="themes">
+      <button class="active" disabled>Action bias</button>
+      <button>Zen</button>
+      <button>Night owl</button>
+    </header>
     <figure>
       <div id="loader" class="lds-ripple">
         <div></div>
@@ -128,11 +130,6 @@
       </div>
     </figure>
     <footer>
-      <div class="themes">
-        <button class="active" disabled>Action bias</button>
-        <button>Zen</button>
-        <button>Night owl</button>
-      </div>
       <div>
         <a href="https://github.com/MauricioRobayo/quotes-to-live-by"
           >Source code</a
