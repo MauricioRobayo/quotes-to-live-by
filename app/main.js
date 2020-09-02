@@ -1,4 +1,7 @@
 (function () {
+
+  /* random quote */
+
   function createElement(type, textContent) {
     const el = document.createElement(type);
     el.textContent = textContent;
@@ -78,4 +81,39 @@
   container.addEventListener("click", function () {
     loadQuote(container);
   });
+
+  /* theme selection */
+
+  const DEFAULT_THEME = 'action'
+  const userTheme = localStorage.getItem('theme')
+  const currentTheme = userTheme || DEFAULT_THEME
+  const themeButtons = document.querySelectorAll('.theme-chooser')
+
+  function setTheme(theme) {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('theme', theme)
+
+    updateButtons(theme)
+  }
+
+  function updateButtons(theme) {
+    themeButtons.forEach((button) => {
+      if (button.dataset.theme === theme) {
+        button.classList.add('active')
+        button.setAttribute('disabled', true)
+      } else {
+        button.classList.remove('active')
+        button.removeAttribute('disabled')
+      }
+    })
+  }
+
+  const header = document.querySelector('header')
+
+  header.addEventListener('click', function(event) {
+    setTheme(event.target.dataset.theme)
+  })
+
+  setTheme(currentTheme)
+
 })();
