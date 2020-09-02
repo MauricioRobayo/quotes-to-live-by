@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme='action'>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,15 +10,20 @@
     />
     <link rel="shortcut icon" href="icon128.png" type="image/png" />
     <style>
-      :root {
+      [data-theme="action"] {
         --primary-color: hsl(0, 0%, 20%);
         --secondary-color: white;
         --bg-color: hsl(24, 100%, 50%);
       }
-      [data-theme="dark"] {
-        --primary-color: #9a97f3;
-        --secondary-color: #818cab;
-        --bg-color: #161625;
+      [data-theme="night"] {
+        --primary-color: hsl(24, 100%, 50%);
+        --secondary-color: white;
+        --bg-color: hsl(0, 0%, 20%);
+      }
+      [data-theme="zen"] {
+        --primary-color: hsl(0, 0%, 20%);
+        --secondary-color: white;
+        --bg-color: hsl(44, 83%, 48%);
       }
       body {
         margin: 0;
