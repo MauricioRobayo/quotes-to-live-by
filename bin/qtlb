@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const https = require('https')
+const URL = 'https://raw.githubusercontent.com/MauricioRobayo/quotes-to-live-by/master/quotes-to-live-by.json'
+
+let data = []
+const req = https.get(URL, (res) => {
+  res.on('data', (chunk) => {
+    data.push(chunk)
+  })
+  
+  res.on('end', () => {
+    const quotes = JSON.parse(data)
+    const {quote, author} = quotes[Math.floor(Math.random() * quotes.length)]
+    const credit = author.trim() === '' ? '' : ` —${author}`
+    console.log(`${quote}${credit}`)
+  })
+
+  res.on('error', console.log)
+  
+}).end()

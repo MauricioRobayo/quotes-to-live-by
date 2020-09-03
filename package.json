@@ -1,11 +1,17 @@
 {
-  "name": "quotes-to-live-by",
+  "name": "qtlb",
   "version": "0.0.0-semantic-release",
   "description": "Quotes gathered from here and there to get inspiration when needed",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "qtlb": "bin/qtlb"
+  },
+  "files": [
+    "bin"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MauricioRobayo/quotes-to-live-by.git"
@@ -17,9 +23,6 @@
     "url": "https://github.com/MauricioRobayo/quotes-to-live-by/issues"
   },
   "homepage": "https://github.com/MauricioRobayo/quotes-to-live-by#readme",
-  "files": [
-    "app"
-  ],
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
