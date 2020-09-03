@@ -1,7 +1,7 @@
 {
   "name": "qtlb",
   "version": "0.0.0-semantic-release",
-  "description": "Quotes gathered from here and there to get inspiration when needed",
+  "description": "Random quote to get inspiration when needed",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
