@@ -2,6 +2,8 @@
 
   /* random quote */
 
+  const container = document.querySelector("figure");
+
   function createElement(type, textContent) {
     const el = document.createElement(type);
     el.textContent = textContent;
@@ -43,44 +45,41 @@
     return quotes;
   }
 
-  function render(container, ...children) {
+  function render(...elements) {
     container.innerHTML = "";
-    container.append(...children);
+    container.append(...elements);
   }
 
-  function renderQuote(container, quote) {
+  function renderQuote(quote) {
     const blockquote = createQuoteElement(quote);
 
     if (quote.author.trim()) {
       render(
-        container,
         blockquote,
         createElement("figcaption", quote.author)
       );
     } else {
-      render(container, blockquote);
+      render(blockquote);
     }
   }
 
-  function renderError(container, error) {
-    render(container, createElement("div", error));
+  function renderError(error) {
+    render(createElement("div", error));
   }
 
-  function loadQuote(container) {
+  function loadQuote() {
     getQuotes()
       .then((quotes) => {
-        renderQuote(container, quotes[Math.floor(Math.random() * quotes.length)]);
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+        renderQuote(randomQuote);
       })
       .catch((error) => {
-        renderError(container, error);
+        renderError(error);
       });
   }
 
-  const container = document.querySelector("figure");
-  loadQuote(container);
-  container.addEventListener("click", function () {
-    loadQuote(container);
-  });
+  loadQuote();
+  container.addEventListener("click", loadQuote);
 
   /* theme selection */
 
