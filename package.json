@@ -4,6 +4,7 @@
   "description": "Random quote to get inspiration when needed",
   "main": "index.js",
   "scripts": {
+    "validate": "jsonlint --quiet quotes-to-live-by.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
@@ -27,11 +28,17 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@commitlint/travis-cli": "^9.1.2",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "jsonlint": "^1.6.3",
+    "lint-staged": "^10.4.0"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "quotes-to-live-by.json": "npm run validate"
   }
 }

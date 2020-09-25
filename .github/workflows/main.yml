@@ -6,7 +6,15 @@ on:
     branches: [master]
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Validate JSON
+        run: npx jsonlint --quiet quotes-to-live-by.json
   deploy:
+    needs: validate
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
