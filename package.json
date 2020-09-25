@@ -34,7 +34,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "precommit": "npm run validate"
+      "pre-commit": "npm run validate"
     }
   }
 }
