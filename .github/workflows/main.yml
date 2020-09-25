@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Validate JSON
-        run: npm run validate
+        run: npx jsonlint --quiet quotes-to-live-by.json
   deploy:
     needs: validate
     runs-on: ubuntu-latest
