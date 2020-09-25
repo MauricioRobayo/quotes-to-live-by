@@ -9,6 +9,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Validate JSON
         run: npm run validate
   deploy:
