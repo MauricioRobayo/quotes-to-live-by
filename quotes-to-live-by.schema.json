@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "properties": {
+    "quotes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["quote","author","cite"],
+        "properties": {
+          "quote": {
+            "type": "string",
+            "description": "A single quote."
+          },
+          "author": {
+            "type": "string",
+            "description": "The author of the quote."
+          },
+          "cite": {
+            "type": "string",
+            "description": "The place where the quote comes from."
+          }
+        }
+      }
+    }
+  }
+}
