@@ -10,7 +10,7 @@ const req = https.get(URL, (res) => {
   })
   
   res.on('end', () => {
-    const quotes = JSON.parse(data.join(''))
+    const {quotes} = JSON.parse(data.join(''))
     const {quote, author} = quotes[Math.floor(Math.random() * quotes.length)]
     const credit = author.trim() === '' ? '' : ` —${author}`
     console.log(`${quote}${credit}`)

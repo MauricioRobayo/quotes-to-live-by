@@ -1,5 +1,4 @@
 (function () {
-
   /* random quote */
 
   const container = document.querySelector("figure");
@@ -23,9 +22,7 @@
   async function getQuotes() {
     const SESSION_STORAGE_KEY = "quotes";
 
-    const sessionStorageQuotes = sessionStorage.getItem(
-      SESSION_STORAGE_KEY
-    );
+    const sessionStorageQuotes = sessionStorage.getItem(SESSION_STORAGE_KEY);
     if (sessionStorageQuotes) {
       return JSON.parse(sessionStorageQuotes);
     }
@@ -38,7 +35,7 @@
         `Error fetching quotes: ${response.status} ${response.statusText}`
       );
     }
-    const quotes = await response.json();
+    const { quotes } = await response.json();
 
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(quotes));
 
@@ -54,10 +51,7 @@
     const blockquote = createQuoteElement(quote);
 
     if (quote.author.trim()) {
-      render(
-        blockquote,
-        createElement("figcaption", quote.author)
-      );
+      render(blockquote, createElement("figcaption", quote.author));
     } else {
       render(blockquote);
     }
@@ -70,7 +64,7 @@
   function loadQuote() {
     getQuotes()
       .then((quotes) => {
-        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
         renderQuote(randomQuote);
       })
       .catch((error) => {
@@ -83,36 +77,35 @@
 
   /* theme selection */
 
-  const DEFAULT_THEME = 'action'
-  const userTheme = localStorage.getItem('theme')
-  const currentTheme = userTheme || DEFAULT_THEME
-  const themeButtons = document.querySelectorAll('.theme-chooser')
+  const DEFAULT_THEME = "action";
+  const userTheme = localStorage.getItem("theme");
+  const currentTheme = userTheme || DEFAULT_THEME;
+  const themeButtons = document.querySelectorAll(".theme-chooser");
 
   function setTheme(theme) {
-    document.documentElement.dataset.theme = theme
-    localStorage.setItem('theme', theme)
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
 
-    updateButtons(theme)
+    updateButtons(theme);
   }
 
   function updateButtons(theme) {
     themeButtons.forEach((button) => {
       if (button.dataset.theme === theme) {
-        button.classList.add('active')
-        button.setAttribute('disabled', true)
+        button.classList.add("active");
+        button.setAttribute("disabled", true);
       } else {
-        button.classList.remove('active')
-        button.removeAttribute('disabled')
+        button.classList.remove("active");
+        button.removeAttribute("disabled");
       }
-    })
+    });
   }
 
-  const header = document.querySelector('header')
+  const header = document.querySelector("header");
 
-  header.addEventListener('click', function(event) {
-    setTheme(event.target.dataset.theme)
-  })
+  header.addEventListener("click", function (event) {
+    setTheme(event.target.dataset.theme);
+  });
 
-  setTheme(currentTheme)
-
+  setTheme(currentTheme);
 })();
