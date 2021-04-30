@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "validate": "ajv validate -s quotes-to-live-by.schema.json -d quotes-to-live-by.json --errors=text",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "git config core.hooksPath .githooks || true",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "bin": {
     "qtlb": "bin/qtlb"
@@ -28,14 +30,7 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@commitlint/travis-cli": "^9.1.2",
-    "ajv-cli": "^3.3.0",
-    "husky": "^4.2.5"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run validate"
-    }
+    "ajv-cli": "^3.3.0"
   },
   "release": {
     "branches": [
