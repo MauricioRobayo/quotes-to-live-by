@@ -36,5 +36,10 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run validate"
     }
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
