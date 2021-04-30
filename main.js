@@ -9,7 +9,7 @@
     return el;
   }
 
-  function createQuoteElement({ quote, author = "", cite = "" }) {
+  function createQuoteElement({ quote, cite = "" }) {
     const blockquote = createElement("blockquote", quote);
 
     if (cite.trim()) {
@@ -20,11 +20,12 @@
   }
 
   async function getQuotes() {
-    const SESSION_STORAGE_KEY = "quotes";
+    const LOCAL_STORAGE_KEY = "quotes";
 
-    const sessionStorageQuotes = sessionStorage.getItem(SESSION_STORAGE_KEY);
-    if (sessionStorageQuotes) {
-      return JSON.parse(sessionStorageQuotes);
+    const cache = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+
+    if (cache && Date.now() < cache.expiration && cache.quotes) {
+      return cache.quotes;
     }
 
     const response = await fetch(
@@ -37,7 +38,13 @@
     }
     const { quotes } = await response.json();
 
-    sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(quotes));
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY,
+      JSON.stringify({
+        quotes,
+        expiration: Date.now() + 7 * 24 * 60 * 60 * 1000,
+      })
+    );
 
     return quotes;
   }
