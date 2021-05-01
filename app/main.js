@@ -87,7 +87,7 @@
   const DEFAULT_THEME = "action";
   const userTheme = localStorage.getItem("theme");
   const currentTheme = userTheme || DEFAULT_THEME;
-  const themeButtons = document.querySelectorAll(".theme-chooser");
+  const themeButtons = document.querySelectorAll(".theme");
 
   function setTheme(theme) {
     document.documentElement.dataset.theme = theme;
@@ -108,10 +108,10 @@
     });
   }
 
-  const header = document.querySelector("header");
-
-  header.addEventListener("click", function (event) {
-    setTheme(event.target.dataset.theme);
+  themeButtons.forEach((themeButton) => {
+    themeButton.addEventListener("click", (event) => {
+      setTheme(event.target.dataset.theme);
+    });
   });
 
   setTheme(currentTheme);
