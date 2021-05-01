@@ -46,6 +46,24 @@
         flex: 1;
         cursor: pointer;
       }
+      /* Android edge using old chromium fallback */
+      blockquote {
+        font-size: 2rem;
+        width: 90%;
+        max-width: 1400px;
+      }
+      figcaption {
+        font-size: 1rem;
+      }
+      @media screen and (min-width: 1024px) {
+        blockquote {
+          font-size: 4rem;
+        }
+        figcaption {
+          font-size: 2rem;
+        }
+      }
+      /* End fallback */
       blockquote {
         margin: 0 auto 2rem;
         font-weight: 900;
@@ -62,7 +80,7 @@
         margin: 0.5rem;
       }
       footer,
-      header {
+      nav {
         padding: 1rem;
       }
       button,
