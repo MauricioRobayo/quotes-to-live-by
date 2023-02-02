@@ -6,7 +6,7 @@
       "author": "Ralph Waldo Emerson",
       "cite": ""
     },
-    { "quote": "Create more, consume less.", "author": "", "cite": "" },
+    { "quote": "Create more, consume less.", "", "cite": "" },
     { "quote": "Move towards resistance and pain.", "author": "Robert Greene", "cite": "Mastery" },
     {
       "quote": "To know what you want to draw, you must begin to draw.",
@@ -170,8 +170,8 @@
     },
     {
       "quote": "Lose the day loitering, 'twill be the same story to-morrow, and the next more dilatory, for indecision brings its own delays, and days are lost lamenting o'er lost days. Are you in earnest? Seize this very minute! What you can do, or think you can, begin it! Only engage, and then the mind grows heated; Begin it, and the work will be completed.",
-      "author": "",
-      "cite": "Johann Wolfgang von Goethe"
+      "author": "Johann Wolfgang von Goethe",
+      "cite": ""
     },
     {
       "quote": "Talent is a pursued interest. Anything that you’re willing to practice, you can do.",
