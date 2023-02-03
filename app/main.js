@@ -84,7 +84,7 @@
 
   /* theme selection */
 
-  const DEFAULT_THEME = "action";
+  const DEFAULT_THEME = "zen";
   const userTheme = localStorage.getItem("theme");
   const currentTheme = userTheme || DEFAULT_THEME;
   const themeButtons = document.querySelectorAll(".theme");
