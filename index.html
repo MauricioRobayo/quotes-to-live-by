@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quotes to Live By</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="icon128.png" type="image/png" />
     <style>
       [data-theme="action"] {
-        --primary-color: hsl(0, 0%, 20%);
-        --secondary-color: white;
-        --bg-color: hsl(24, 100%, 50%);
-      }
-      [data-theme="night"] {
-        --primary-color: hsl(24, 100%, 50%);
-        --secondary-color: white;
-        --bg-color: hsl(0, 0%, 20%);
+        --primary-color: hsla(24, 100%, 50%, .75);
+        --secondary-color: hsl(24, 100%, 50%);
+        --bg-color: hsl(24, 100%, 95%);
       }
       [data-theme="zen"] {
-        --primary-color: hsl(48, 18%, 45%);
-        --secondary-color: hsl(32, 33%, 80%);
+        --primary-color: hsla(48, 18%, 85%, .75);
+        --secondary-color: hsl(48, 18%, 85%);
         --bg-color: hsl(109, 12%, 63%);
+      }
+      [data-theme="night"] {
+        --bg-color: hsl(24, 100%, 10%);
+        --secondary-color: hsl(24, 100%, 85%);
+        --primary-color: hsla(24, 100%, 85%, .75);
       }
       body {
         margin: 0;
@@ -36,7 +36,6 @@
         align-items: center;
         justify-content: center;
         color: var(--primary-color);
-        font-weight: 700;
       }
       figure {
         margin: 2rem 0;
@@ -46,33 +45,15 @@
         flex: 1;
         cursor: pointer;
       }
-      /* Android edge using old chromium fallback */
-      blockquote {
-        font-size: 2rem;
-        width: 90%;
-        max-width: 1400px;
-      }
-      figcaption {
-        font-size: 1rem;
-      }
-      @media screen and (min-width: 1024px) {
-        blockquote {
-          font-size: 4rem;
-        }
-        figcaption {
-          font-size: 2rem;
-        }
-      }
-      /* End fallback */
       blockquote {
         margin: 0 auto 2rem;
-        font-weight: 900;
-        font-size: clamp(2rem, 8vw, 4rem);
+        font-size: clamp(1.5rem, 4vw, 2rem);
         max-width: min(1400px, 90%);
         color: var(--secondary-color);
+        font-weight: 700;
       }
       figcaption {
-        font-size: clamp(1rem, 4vw, 2rem);
+        font-size: clamp(1rem, 2vw, 1.5rem);
       }
       figcaption::after,
       figcaption::before {
