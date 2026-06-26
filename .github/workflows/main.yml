@@ -12,8 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
+        name: Install pnpm
         with:
           version: 10
+          cache: true
+      - name: Install dependencies
+        run: pnpm install
       - name: Validate JSON
         run: pnpm run validate
       - name: Lint JSON
