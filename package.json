@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "validate": "ajv validate -s quotes-to-live-by.schema.json -d quotes-to-live-by.json --errors=text",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "git config core.hooksPath .githooks || true",
-    "prepare": "git config core.hooksPath .githooks || true"
+    "lint": "jsonlint --quiet quotes-to-live-by.json"
   },
   "bin": {
     "qtlb": "bin/qtlb"
@@ -27,10 +25,7 @@
   },
   "homepage": "https://github.com/MauricioRobayo/quotes-to-live-by#readme",
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^9.1.2",
-    "@commitlint/travis-cli": "^9.1.2",
-    "ajv-cli": "^3.3.0"
+    "ajv-cli": "^5.0.0"
   },
   "release": {
     "branches": [
