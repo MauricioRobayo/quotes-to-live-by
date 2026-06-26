@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/MauricioRobayo/quotes-to-live-by#readme",
   "devDependencies": {
-    "ajv-cli": "^5.0.0"
+    "ajv-cli": "^5.0.0",
+    "jsonlint": "^1.6.3"
   },
   "release": {
     "branches": [
